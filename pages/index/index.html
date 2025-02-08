@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Filesharer</title>
 </head>
+
 <body>
+    <style>
+        .file {
+            border: solid 1px #b3c1c7;
+            border-radius: 8px;
+            margin-top: 5px;
+            padding: 5px;
+        }
+
+        .file:hover {
+            border: solid 1px #6790ff;
+            background-color: #f8faff;
+            border-radius: 10px;
+        }
+
+        .dir {
+            border: solid 1px #c5c3bb;
+            border-radius: 8px;
+            margin-top: 5px;
+            padding: 5px;
+        }
+
+        .dir:hover {
+            border: solid 1px #ffd967;
+            background-color: #fffdf8;
+            border-radius: 10px;
+        }
+    </style>
     <div class="title">
         <h1>{route}</h1>
     </div>
@@ -14,4 +42,5 @@
         {index}
     </div>
 </body>
+
 </html>

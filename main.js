@@ -6,8 +6,6 @@ const os = require('os');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")))
-
 function getLocalIpAddresses() {
     const interfaces = os.networkInterfaces();
     const localIps = [];
@@ -49,19 +47,13 @@ function mapFilesToRoutes(dir, route) {
     });
     // 处理请求
     app.get(route, (req, res) => {
-        fs.readFile("pages/index/index.html", "utf-8", (err, data) => {
+        fs.readFile(path.join(__dirname, "pages/index/index.html"), "utf-8", (err, data) => {
             if (err) console.log(`Error: ${err}`);
             if (route) res.send(data.replace("{route}", route).replace("{index}", index));
             else res.send(data.replace("{route}", "/").replace("{index}", index));
         })
     })
 }
-
-app.get("/style.css", (req, res) => {
-    fs.readFile("pages/index/style.css", "utf-8", (err, data) => {
-        res.send(data);
-    })
-})
 
 // 解析命令行参数
 const argv = yargs.option('port', {
